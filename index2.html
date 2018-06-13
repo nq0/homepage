@@ -1,0 +1,75 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>スクロールテスト</title>
+<script type="text/javascript" src="http://blog.teruterubouzu.net/test/js/jquery.js"></script>
+
+<script type="text/javascript">
+$(function() {
+	$(".scroll").click(function(event){
+	        event.preventDefault();
+			
+	        var url = this.href;
+
+	        var parts = url.split("#");
+	        var target = parts[1];
+	 
+	        var target_offset = $("#"+target).offset();
+	        var target_top = target_offset.top;
+	 
+	        $('html, body').animate({scrollTop:target_top}, "slow");
+	    });
+	});
+
+</script>
+
+<style type="text/css">
+body{
+	text-align:center;
+}
+ul#sc{
+	list-style-type:none;
+	overflow:hidden;
+}
+ul#sc li{
+	float:left;
+	width:100px;
+	height:25px;
+	margin:0;
+	padding:0;
+}
+div.test{
+		background-color:#CCC;
+		margin:10px auto;
+		padding:10px 0;
+		width:500px;
+		height:300px;
+		border:1px dotted #999;
+}
+</style>
+</head>
+
+<body>
+<div id="top">
+<ul id="sc">
+	<li><a href="#a" class="scroll">てすと１</a></li>
+	<li><a href="#b" class="scroll">てすと２</a></li>
+	<li><a href="#c" class="scroll">てすと３</a></li>
+	<li><a href="#d" class="scroll">てすと４</a></li>
+	<li><a href="#e" class="scroll">てすと５</a></li>
+</ul>
+<div id="a" class="test">てすと１のリンク先</div>
+<div id="b" class="test">てすと２のリンク先</div>
+<div id="c" class="test">てすと３のリンク先</div>
+<div id="d" class="test">てすと４のリンク先</div>
+<div id="e" class="test">てすと５のリンク先</div>
+
+<a href="#top" class="scroll">トップへ</a>
+</div>
+</body>
+</html>
+
+
+
