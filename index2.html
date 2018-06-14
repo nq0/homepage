@@ -1,24 +1,18 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta charset="utf-8">
 <title>スクロールテスト</title>
-<script type="text/javascript" src="http://blog.teruterubouzu.net/test/js/jquery.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(function() {
-	$(".scroll").click(function(event){
+	$(".scroll").on("click", function(){
 	        event.preventDefault();
-			
-	        var url = this.href;
-
-	        var parts = url.split("#");
-	        var target = parts[1];
-	 
-	        var target_offset = $("#"+target).offset();
-	        var target_top = target_offset.top;
-	 
+	        var target = $(this).attr("href");
+	        var target_top = $(target).offset().top;
+					var rem = getEmPixels();
+					var fixed_top = target_top + 7 * rem;
 	        $('html, body').animate({scrollTop:target_top}, "slow");
 	    });
 	});
@@ -70,6 +64,3 @@ div.test{
 </div>
 </body>
 </html>
-
-
-

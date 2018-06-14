@@ -1,45 +1,45 @@
 $(function() {
 
+  var page = 0;  //（１）ページの概念・初期ページを設定
+  var lastPage = parseInt($(".slide img").length-1);  //（２）イメージの数を最後のページ数として変数化
 
-//（１）ページの概念・初期ページを設定
-var page=0;
+  $(".slide img").css("display","none");  //（３）最初に全部のイメージを一旦非表示にします
+  $(".slide img").eq(page).css("display","block");  //（４）初期ページを表示
 
-//（２）イメージの数を最後のページ数として変数化
-var lastPage =parseInt($("#slide img").length-1);
+  function changePage(){  //（５）ページ切換用、自作関数作成
+    $(".slide img").fadeOut(1000);
+    $(".slide img").eq(page).fadeIn(1000);
+  };
 
-//（３）最初に全部のイメージを一旦非表示にします
-     $("#slide img").css("display","none");
+  var Timer = setInterval(startTimer,2500);  //（６）～秒間隔でイメージ切換の発火設定
 
-//（４）初期ページを表示
-          $("#slide img").eq(page).css("display","block");
+  function startTimer(){
+    if(page === lastPage){
+      page = 0;
+      changePage();
+    }else{
+      page ++;
+      changePage();
+    };
+  }
 
-//（５）ページ切換用、自作関数作成
-function changePage(){
-                         $("#slide img").fadeOut(1000);
-                         $("#slide img").eq(page).fadeIn(1000);
-};
+  function stopTimer(){  //（７）～秒間隔でイメージ切換の停止設定
+    clearInterval(Timer);
+  }
 
-//（６）～秒間隔でイメージ切換の発火設定
-var Timer;
-function startTimer(){
-Timer =setInterval(function(){
-          if(page === lastPage){
-                         page = 0;
-                         changePage();
-               }else{
-                         page ++;
-                         changePage();
-          };
-     },5000);
-}
-//（７）～秒間隔でイメージ切換の停止設定
-function stopTimer(){
-clearInterval(Timer);
-}
+  startTimer();  //（８）タイマースタート
 
-//（８）タイマースタート
-startTimer();
 
-/*オプションを足す場合はここへ記載*/
-
-});
+  $(".scroll").on("click", function(){
+	        event.preventDefault();
+	        var target = $(this).attr("href"); // クリックされた<a>タグのhrefプロパティの値を取得
+	        var target_top = $(target).offset().top;
+          console.log(target_top);
+          var rem = perseInt($("html").css('font-size')); // rem単位の値を取得
+          console.log(rem);
+          console.log( 7 * rem);
+          var fixed_top = target_top + 7 * rem; // ヘッダーによる位置ズレ補正
+          console.log(fixed_top);
+          $('html, body').animate({scrollTop:fixed_top}, "slow");
+	    });
+	});
