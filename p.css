@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 12px;
+}
+body {
+  font-size: 1.5rem;
+  font-family:'Courier New','sans-serif';
+}
+
+a.scroll:link {color: white; text-decoration: none}
+a.scroll:visited {color: white}
+
+
+header {
+  font-size: 2rem;
+  font-weight: bold;
+  height: 7rem;
+  width: 100%;
+  background-color: #333;
+  opacity: 0.89;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+  /*width: 80%;*/
+  height: 6rem;
+  line-height: 6rem;
+  margin: calc((7rem - 6rem) / 2) 0;
+}
+header ul li {
+  display: block;
+  margin: 0 1rem;
+}
+header ul li:first-child {
+  margin-right: auto;
+}
+
+/*
+header ul li {
+  /*width: 14rem;
+  text-align: center;
+  display: inline;
+  /* background-color: #333;
+  float:left;
+  height: 7rem;
+  line-height: 7rem;
+  margin-left: 0;
+  display: inline;
+}
+*/
+#logo {
+
+  min-width: 150px;
+  width: 20vw;
+  max-height: 6rem;
+}
+/*
+header ul li a {
+  text-decoration: none;
+  color:#fff;
+  font-weight: bold;
+  padding: 2rem;
+
+}
+*/
+main {
+  margin-top: calc(7rem + 5%);
+}
+section {
+  height: 500px;
+}/*
+section h1{
+  margin-top: calc(7rem + 5%);
+}*/
+#top {
+  height: calc(75vw / 4 * 3);
+}
+#top .slide {
+  width: 75vw;
+  margin: 5% auto;
+  position: relative;
+}
+#top .slide img{
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/*.slide {
+  /*width:100%;
+  /*position:relative;
+}
+.slide img {
+  position: absolute;
+  left:0;
+  top:0;
+  width: 100%;
+  height: auto;
+}*/
+
+/*#bar {
+  /*margin-top: 0.9rem;
+  display: inline-block;
+  width: 20%;
+}
+#bar a {
+}
+#bar a img {
+  height:5rem;
+  margin: auto 0;
+}
+*/
+
+/*li.logo {
+  list-style-image: url(l.png);
+}*/
+
+/*#neko {
+  display: inline;
+}
+img {
+  display: block;
+}
+
+p.resizeimage img {
+  width: 80%;
+  height: auto;
+  padding: 0;
+  margin: 0;
+}
+*/
+
+/*
+#space{
+  margin-top: 100px;
+*/
+/*ページ内リンクのずれを修正*/
+/*@keyframes  modify{
+  0% {
+    padding-top: calc(7rem + 5%);
+    margin-top: calc(-1*(7rem + 5%));
+  }
+  100% {
+    padding-top: 0;
+    margin-top: 0;
+  }
+}
+:target {animation: modify 5s};
+}*/
